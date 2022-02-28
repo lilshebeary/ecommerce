@@ -1,13 +1,13 @@
- const express = require('express');
- const bodyParser = require('body-parser');
+const express = require("express");
+const bodyParser = require('body-parser');
 
- const app = express();
- app.use(bodyParser.urlencoded({ extended: true }));
+const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
 
- app.get('/', (req, res) => {
-    res.send(`
+app.get("/", (req, res) => {
+  res.send(`
         <div>
-            <form method="POST" autocomplete="off">
+            <form method="POST" >
                 <input name="email" type="email" placeholder="email"  />
                 <input name="password" type="password" placeholder="password"  />
                 <input name="passwordConfirmation" type="password" placeholder="password confirmation" />
@@ -15,14 +15,15 @@
             </form>
         </div>
     `);
- });
+});
 
 
- app.post('/', (req, res) => {
+
+app.post("/", (req, res) => {
     console.log(req.body);
-    res.send('Account Created!')
- });
+    res.send("Account Created!");
+});
 
- app.listen(3000, () => {
-     console.log('Listening');
- });
+app.listen(3000, () => {
+  console.log("Listening");
+});
